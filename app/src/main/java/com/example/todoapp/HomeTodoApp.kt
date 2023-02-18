@@ -72,9 +72,9 @@ class HomeTodoApp : AppCompatActivity() {
                 deleteFragment.deleteTodo = object : DeleteFragment.DeleteTodo{
                     override fun deleteTodo() {
                         MyDatabase.getinstance(this@HomeTodoApp).getTodoDao().deleteTodo(todo)
+                        listfragment.refreshList()
                     }
                 }
-                listfragment.refreshList()
                 deleteFragment.show(supportFragmentManager,"delete F")
 
             }
