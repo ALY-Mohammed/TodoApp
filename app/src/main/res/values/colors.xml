@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="greenlite">#6CE863</color>
+    <color name="blue">#5D9BEB</color>
+    <color name="red">#EF0C27</color>
+    <color name="green">#DEEBDA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">@android:color/transparent</color>
+
+</resources>

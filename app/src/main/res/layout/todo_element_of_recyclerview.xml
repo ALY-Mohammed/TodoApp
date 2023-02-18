@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zerobranch.layout.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/white"
+    app:cardCornerRadius="12dp"
+    android:elevation="20dp"
+    android:layout_margin="10dp"
+    app:draggedItem="@id/item"
+    app:leftItem="@id/itemDelete"
+    app:swipeDirection="right"
+    app:layout_constraintTop_toTopOf="parent"
+    android:backgroundTint="@color/green"
+    >
+
+    <ImageView
+        android:id="@+id/itemDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/deleat"
+        />
+
+     <androidx.cardview.widget.CardView
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    app:cardCornerRadius="12dp"
+    android:elevation="15dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+        <View
+            android:id="@+id/verticalLine"
+            android:layout_width="4dp"
+            android:layout_height="70dp"
+            android:background="@color/blue"
+            android:layout_margin="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/itemTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_margin="12dp"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@id/verticalLine"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Play Busket Ball"
+
+            />
+        <TextView
+            android:id="@+id/itemDescreptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_margin="12dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/itemTitleText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemTitleText"
+            android:text="Play Busket Ball"
+            />
+
+
+        <ImageView
+
+            android:id="@+id/ImageCorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/check_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="20dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
+
+</com.zerobranch.layout.SwipeLayout>
+
+
+
