@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.todoapp.R
@@ -30,6 +31,7 @@ class TodosAdapter(var items :List<Todo>):Adapter<TodosAdapter.viewHolder>() {
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         val todo = items[position]
           //  holder.deleat.setImageResource(R.drawable.deleat)
+
              holder.titletextView.text = todo.title
              holder.titletextView.setTextColor(Color.rgb(93,155,235))
              holder.descriptiontextView.text = todo.description
@@ -42,7 +44,7 @@ class TodosAdapter(var items :List<Todo>):Adapter<TodosAdapter.viewHolder>() {
             holder.descriptiontextView.setTextColor(Color.GREEN)
         }
 
-        holder.itemView.setOnClickListener {
+        holder.itemviewLayout.setOnClickListener{
             onItemClick?.onItemClicked(todo)
         }
         holder.iconCheck.setOnClickListener {
@@ -51,6 +53,7 @@ class TodosAdapter(var items :List<Todo>):Adapter<TodosAdapter.viewHolder>() {
 
         holder.deleat.setOnClickListener {
             onItemDeletedClicked?.onItemClick(position,items!!.get(position))
+            holder.swipe.close()
         }
 
 
@@ -61,6 +64,8 @@ class TodosAdapter(var items :List<Todo>):Adapter<TodosAdapter.viewHolder>() {
         val descriptiontextView= itemView.findViewById<TextView>(R.id.itemDescreptionText)
         val iconCheck =itemView.findViewById<ImageView>(R.id.ImageCorrect)
         val deleat=itemView.findViewById<ImageView>(R.id.itemDelete)
+        val swipe =itemView.findViewById<SwipeLayout>(R.id.swipe)
+        val itemviewLayout=itemView.findViewById<ConstraintLayout>(R.id.itemView)
 
     }
 

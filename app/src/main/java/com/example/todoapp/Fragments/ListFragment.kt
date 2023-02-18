@@ -112,7 +112,7 @@ class ListFragment : Fragment() {
             override fun onChecked(v: TodosAdapter.viewHolder,todo: Todo) {
 
 
-              var click= Todo(id=todo.id, description = todo.description, title =todo.title, isDone = true, date = todo.date)
+              val click= Todo(id=todo.id, description = todo.description, title =todo.title, isDone = true, date = todo.date)
                 MyDatabase.getinstance(requireContext()).getTodoDao().updateTodo(click)
 
                 v.iconCheck.setImageResource(R.drawable.done)
