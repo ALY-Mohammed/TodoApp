@@ -42,13 +42,11 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val todoOfStart = MyDatabase.getinstance(requireContext()).getTodoDao().getTodoByDate(selectedDatePackage.time.time)
-//        todosAdapter=TodosAdapter(todoOfStart)
-
         initViews(view)
         initListners()
         pushActivityUpdate()
-        iconCoreckChick()
+        iconCorrectCheck()
+        refreshList()
 
 
     }
@@ -62,6 +60,10 @@ class ListFragment : Fragment() {
     }
 
     fun refreshList(){
+        selectedDatePackage.clear(Calendar.MILLISECOND)
+        selectedDatePackage.clear(Calendar.MINUTE)
+        selectedDatePackage.clear(Calendar.HOUR)
+        selectedDatePackage.clear(Calendar.SECOND)
         val todo = MyDatabase.getinstance(requireActivity()).getTodoDao().getTodoByDate(selectedDatePackage.time.time)
         todosAdapter.changeList(todo)
     }
@@ -74,10 +76,7 @@ class ListFragment : Fragment() {
              date: CalendarDay,
              selected: Boolean
          ) {
-             selectedDatePackage.clear(Calendar.MILLISECOND)
-             selectedDatePackage.clear(Calendar.MINUTE)
-             selectedDatePackage.clear(Calendar.HOUR)
-             selectedDatePackage.clear(Calendar.SECOND)
+
              selectedDatePackage.set(date.year,date.month-1,date.day)
              refreshList()
          }
@@ -107,7 +106,7 @@ class ListFragment : Fragment() {
     }
 
 
-    fun iconCoreckChick() {
+    fun iconCorrectCheck() {
         todosAdapter.oncorecktlick = object : TodosAdapter.Oncorecktlick {
             override fun onChecked(v: TodosAdapter.viewHolder,todo: Todo) {
 
